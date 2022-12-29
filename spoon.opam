@@ -10,6 +10,7 @@ homepage: "https://github.com/ianthehenry/spoon"
 bug-reports: "https://github.com/ianthehenry/spoon/issues"
 depends: [
   "ocaml"
+  "ocamlformat"
   "dune" {>= "3.6"}
   "lambdasoup"
   "core"

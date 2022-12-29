@@ -2,6 +2,8 @@ Spoon is a command-line HTML wrangler, like [`pup`](https://github.com/ericchian
 
 It is a small wrapper around [Lamba Soup](https://github.com/aantron/lambdasoup).
 
+It is not actually released anywhere, so if you want to use it, you'll have to build it from source.
+
 # Quick Start
 
 Spoon takes a single anonymous argument, a CSS selector, and optionally some flags that control how it prints them.
@@ -36,7 +38,7 @@ $ curl -s https://ianthehenry.com | spoon 'header' -text
 Ian Henry About Blog Stuff
 ```
 
-And you can print the selected nodes preserving the original whitespace:
+And you can print the selected nodes with an approximate preservation of the original whitespace:
 
 ```
 $ curl -s https://ianthehenry.com | spoon 'header' -ugly
@@ -72,18 +74,18 @@ Spoon is a command-line wrapper around lambda-soup.
   [-sexp]                    . print output as a sexp. HTML comments and doctype
                                declarations will be ignored.
   [-text]                    . flatten and print text from each selected node
-  [-ugly]                    . don't pretty-print output, preserving the
-                               whitespace of the input (but note that Spoon will
-                               still ensure a terminal newline after each node
-                               it outputs)
+  [-ugly]                    . don't pretty-print output, and try (not very
+                               well) to preserve the whitespace of the input.
+                               Note that Spoon will still ensure a terminal
+                               newline after each node it outputs.
   [-build-info]              . print info about this build and exit
   [-version]                 . print the version of this build and exit
   [-help], -?                . print this help text and exit
 ```
 
-# Developing
+# Building
 
-`spoon` requires `opam` to build.
+`spoon` requires `opam`.
 
 ```
 $ opam switch create . 4.14.1

@@ -11,8 +11,9 @@ let output_mode_param =
         "-ugly"
         no_arg
         ~doc:
-          "don't pretty-print output, preserving the whitespace of the input (but note \
-           that Spoon will still ensure a terminal newline after each node it outputs)"
+          "don't pretty-print output, and try (not very well) to preserve the whitespace \
+           of the input. Note that Spoon will still ensure a terminal newline after each \
+           node it outputs."
       |> map_bool_to_choice Ugly_html
     ; flag "-text" no_arg ~doc:"flatten and print text from each selected node"
       |> map_bool_to_choice Text

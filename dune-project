@@ -21,6 +21,7 @@
  (description "A simple frontend to lambda_soup")
  (depends
    ocaml
+   ocamlformat
    dune
    lambdasoup
    core

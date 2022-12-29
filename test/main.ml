@@ -15,20 +15,21 @@ let example_markup =
 let%expect_test "different output modes" =
   List.iter Spoon.Output_mode.all ~f:(fun output_mode ->
     print_s [%sexp (output_mode : Spoon.Output_mode.t)];
-    test output_mode Print_all_nodes example_markup);
+    test output_mode Print_all_nodes example_markup;
+    print_endline "");
   [%expect
     {|
       Pretty_html
       <body>
-        <div class="important">
-          just  markup    things
-        </div>
+       <div class="important">
+        just  markup    things
+       </div>
       </body>
 
       Ugly_html
       <body>
                 <div class="important">
-                    just  markup    things </div></body>
+                    just  markup    things </div> </body>
 
       Text
       just  markup    things
@@ -38,8 +39,8 @@ let%expect_test "different output modes" =
        ( "\
         \n          "
         (div ((class important)) ( "\
-                                  \n              just  markup    things "))))
-      " " |}]
+                                  \n              just  markup    things "))
+        " ")) |}]
 ;;
 
 let%expect_test "text output prints each node on its own line" =
@@ -68,12 +69,12 @@ let%expect_test "nested nodes can produce duplicate output" =
   [%expect
     {|
     <div>
-      <div>
-        nested
-      </div>
+     <div>
+      nested
+     </div>
     </div>
     <div>
-      nested
+     nested
     </div> |}]
 ;;
 
@@ -81,7 +82,7 @@ let%expect_test "top-level text nodes don't get dropped" =
   test Pretty_html Print_all_nodes "<div>nested</div> top-level";
   [%expect {|
     <div>
-      nested
+     nested
     </div>
     top-level |}]
 ;;
