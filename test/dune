@@ -1,0 +1,5 @@
+(library
+ (name spoon_tests)
+ (libraries core core_kernel markup spoon)
+ (inline_tests)
+ (preprocess (pps ppx_jane)))

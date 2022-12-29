@@ -1,0 +1,5 @@
+(executable
+ (name main)
+ (public_name spoon)
+ (libraries core core_unix.command_unix spoon)
+ (preprocess (pps ppx_jane)))

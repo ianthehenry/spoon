@@ -1,0 +1,4 @@
+(library
+ (name spoon)
+ (libraries core lambdasoup markup)
+ (preprocess (pps ppx_jane)))
